@@ -1,0 +1,75 @@
+window.KOWA_GUIDE={version:1,maps:[{id:"kowakujo",name:"Kowakujō",subtitle:"Community-Checkliste",available:true,modes:[{id:"full",name:"Komplette Hauptquest",description:"Alle Abschnitte"},{id:"neko",name:"Nur Nekomancer",description:"Kurzroute bis zur Wunderwaffe"}],sections:[
+{id:"paps",title:"1. Pack-a-Punch & World Seed",subtitle:"Vorbereitung",neko:true,steps:[
+{id:"wards",title:"Zwei Wards aktivieren",description:"Beide benötigten Ward-Schritte abschließen.",zones:["outerward","courtyard"],roles:2},
+{id:"sanctum",title:"Sanctum öffnen",description:"Zugang zum Sanctum freischalten.",zones:["sanctum"]},
+{id:"oni",title:"Oni-Miniboss besiegen",description:"Den Quest-Miniboss im Sanctum besiegen.",zones:["sanctum"],roles:4},
+{id:"hanko",title:"Shogun’s Hanko aufnehmen",description:"Questgegenstand nach dem Kampf aufnehmen.",zones:["sanctum"]},
+{id:"seed",title:"World Seed laden",description:"World Seed für die nächsten Questschritte aktivieren.",zones:["sanctum"]}]},
+{id:"maneki",title:"2. Maneki-Neko bauen",subtitle:"Drei Teile sammeln",neko:true,steps:[
+{id:"furin",title:"Furin-Glocke finden",description:"Community-Fundorte können sich durch Updates ändern.",zones:["teagarden","courtyard"],roles:1},
+{id:"karakuri",title:"Karakuri-Puppe finden",description:"Mögliche Bereiche prüfen.",zones:["workshop","storage"],roles:1},
+{id:"statue",title:"Maneki-Neko-Statue finden",description:"Mögliche Bereiche prüfen.",zones:["meditation","teagarden"],roles:1},
+{id:"assemble",title:"Im Workshop zusammensetzen",description:"Alle Teile am vorgesehenen Baupunkt kombinieren.",zones:["workshop"]}]},
+{id:"nekomancer",title:"3. Nekomancer freischalten",subtitle:"Kurzquest",neko:true,steps:[
+{id:"phd",title:"PhD Flopper besorgen",description:"Für den folgenden Lava-Schritt vorbereiten.",zones:["courtyard"]},
+{id:"cage",title:"Katzenkäfig finden",description:"Käfig im angegebenen Questbereich suchen.",zones:["tenshu"]},
+{id:"lavacage",title:"Käfig in Lava werfen",description:"Den Quest-Trigger auslösen.",zones:["outerward"]},
+{id:"paws",title:"Pfotenspuren verfolgen",description:"Die aktive Spur bis zum richtigen Bereich verfolgen.",zones:["garden","outerward"]},
+{id:"throw",title:"Maneki-Neko am aktiven Ziel einsetzen",description:"Nur den im aktuellen Run aktiven Questpunkt verwenden.",zones:["outerward"]},
+{id:"abom",title:"Abomination besiegen",description:"Questgegner gemeinsam besiegen.",zones:["outerward"],roles:4},
+{id:"death",title:"Death Perception besorgen",description:"Für den nächsten Suchschritt vorbereiten.",zones:["courtyard"]},
+{id:"sneak",title:"Katze vorsichtig erreichen",description:"Langsam vorgehen und den Quest-Trigger nicht unterbrechen.",zones:["outerward","courtyard"],roles:2},
+{id:"carry",title:"Katze zum World Seed bringen",description:"Questobjekt sicher zum Seed transportieren.",zones:["sanctum"],roles:2},
+{id:"load",title:"Nekomancer aufnehmen",description:"Seed-Schritt abschließen und Belohnung aufnehmen.",zones:["sanctum"]}]},
+{id:"lanterns",title:"4. Laternen & Geist",subtitle:"Ermittlung starten",steps:[
+{id:"lantern-hit",title:"Alle benötigten Laternen aktivieren",description:"Die im aktuellen Run geforderte Laternenfolge zügig abschließen.",zones:["courtyard","teagarden","outerward","garden"],roles:2},
+{id:"war-room",title:"Geist im War Room ansprechen",description:"Ermittlungsabschnitt starten.",zones:["warroom"]}]},
+{id:"fox",title:"5. Fox Mask & Verdächtige",subtitle:"Beweise sammeln",steps:[
+{id:"kite",title:"Ninja Kite freischalten",description:"Benötigte Flugmechanik aktivieren.",zones:["tenshu"]},
+{id:"fox-mask",title:"Fox Mask aufnehmen",description:"Masken-Schritt während der Flugroute abschließen.",zones:["tenshu","courtyard"]},
+{id:"simon",title:"Maskenwand lösen",description:"Aktive Reihenfolge notieren und wiederholen.",zones:["warroom"],note:"Maskensequenz"},
+{id:"takeshi",title:"Takeshi’s Pipe finden",description:"Community-Angabe im aktuellen Run prüfen.",zones:["stables","gatehouse"],roles:1},
+{id:"takeo",title:"Takeo’s Case finden",description:"Community-Angabe im aktuellen Run prüfen.",zones:["warroom","study"],roles:1},
+{id:"comb",title:"Mitsuhime’s Comb finden",description:"Community-Angabe im aktuellen Run prüfen.",zones:["onsen","study"],roles:1},
+{id:"meditation",title:"Beweise platzieren",description:"Gesammelte Beweise im Ermittlungsraum zuordnen.",zones:["meditation"]}]},
+{id:"accomplice",title:"6. Komplize",subtitle:"Zufällige Nebenmission",steps:[
+{id:"coinpurse",title:"Coin Purse besorgen",description:"Benötigten Questgegenstand erhalten.",zones:["courtyard"]},
+{id:"sidequest",title:"Aktive Nebenmission abschließen",description:"Merchant, Gardener oder Noble auswählen und die aktuelle Ingame-Variante befolgen.",zones:["kitchens","garden","teagarden"],note:"Nebenmissions-Notiz"},
+{id:"place-accomplice",title:"Komplizen-Beweise platzieren",description:"Beweise im Ermittlungsraum zuordnen.",zones:["meditation"]}]},
+{id:"poison",title:"7. Gift-Beweise",subtitle:"Zutaten und Rätsel",steps:[
+{id:"pouch",title:"Empty Pouch finden",description:"Questgegenstand sammeln.",zones:["kitchens"]},
+{id:"ash",title:"Volcanic Ash sammeln",description:"Aktiven Questpunkt prüfen.",zones:["outerward"]},
+{id:"monkshood",title:"Monkshood sammeln",description:"Im aktuellen Run benötigte Variante beachten.",zones:["garden"]},
+{id:"plum",title:"Plum Pit finden",description:"Mögliche Bereiche prüfen.",zones:["kitchens","storage"]},
+{id:"scroll",title:"Scroll-Rätsel lösen",description:"Reihenfolge in den Notizen festhalten.",zones:["study","warroom"],note:"Scroll-Reihenfolge"},
+{id:"pestle",title:"Pestle verwenden",description:"Zutaten am vorgesehenen Questpunkt verarbeiten.",zones:["kitchens"]},
+{id:"brainrot",title:"Brain Rot-Schritt abschließen",description:"Aktive Questinteraktion auslösen.",zones:["kitchens"]},
+{id:"puffer",title:"Pufferfish-Schritt abschließen",description:"Aktive Questinteraktion auslösen.",zones:["kitchens"]},
+{id:"place-poison",title:"Gift-Beweise platzieren",description:"Beweise im Ermittlungsraum zuordnen.",zones:["meditation"]}]},
+{id:"scene",title:"8. Tatort-Beweise",subtitle:"Objekte und Verteidigungen",steps:[
+{id:"shards",title:"Zwei Ceramic Shards finden",description:"Beide Questteile sammeln.",zones:["storage","kitchens"]},
+{id:"sake",title:"Sake Cup reparieren",description:"Gesammelte Teile am vorgesehenen Punkt kombinieren.",zones:["workshop"]},
+{id:"defenses",title:"Drei Verteidigungen abschließen",description:"Alle aktiven Verteidigungspunkte halten.",zones:["training","staging","courtyard"],roles:4},
+{id:"horse",title:"Horse Statuette finden",description:"Möglichen Questbereich prüfen.",zones:["stables"]},
+{id:"brush",title:"Calligraphy Brush finden",description:"Möglichen Questbereich prüfen.",zones:["study"]},
+{id:"whisk",title:"Tea Whisk finden",description:"Möglichen Questbereich prüfen.",zones:["teagarden"]},
+{id:"place-scene",title:"Tatort-Beweise platzieren",description:"Beweise im Ermittlungsraum zuordnen.",zones:["meditation"]}]},
+{id:"motive",title:"9. Motiv-Beweise",subtitle:"Codes und Zuordnung",steps:[
+{id:"hanko-motive",title:"Shogun’s Hanko einsetzen",description:"Gesammelten Questgegenstand zuordnen.",zones:["meditation"]},
+{id:"netsuke",title:"Netsuke of Brothers finden",description:"Möglichen Questbereich prüfen.",zones:["study"]},
+{id:"clock",title:"Uhrcode lösen",description:"Aktive Lösung notieren.",zones:["warroom"],note:"Uhrcode"},
+{id:"banners",title:"Banner zuordnen",description:"Aktive Reihenfolge notieren.",zones:["warroom","gatehouse"],note:"Banner-Reihenfolge"},
+{id:"crest",title:"Crest Medallion erhalten",description:"Vorherige Rätsel vollständig abschließen.",zones:["warroom"]},
+{id:"place-motive",title:"Motiv-Beweise platzieren",description:"Beweise im Ermittlungsraum zuordnen.",zones:["meditation"]}]},
+{id:"solve",title:"10. Mordfall lösen",subtitle:"Finale Ermittlung",steps:[
+{id:"witness",title:"Ghostly Rifleman befragen",description:"Aussage notieren.",zones:["staging"],note:"Zeugenaussage"},
+{id:"paintings",title:"Gemälde korrekt belegen",description:"Beweise den richtigen Bildern zuordnen.",zones:["meditation"]},
+{id:"poison-pick",title:"Gift bestimmen",description:"Aktive Lösung notieren.",zones:["meditation"],note:"Gift-Lösung"},
+{id:"zodiac",title:"Zodiac Dial einstellen",description:"Aktive Lösung notieren.",zones:["meditation"],note:"Zodiac-Lösung"},
+{id:"incense",title:"Räucherschalen aktivieren",description:"Finalen Quest-Trigger auslösen.",zones:["meditation","sanctum"]}]},
+{id:"finale",title:"11. Finale",subtitle:"Bossabschnitt",steps:[
+{id:"shield",title:"Optionales Upgrade vorbereiten",description:"Vor dem Finale Ausrüstung und Ressourcen prüfen.",zones:["workshop"]},
+{id:"bullet",title:"Finalen Seed-Schritt starten",description:"Questgegenstand am World Seed einsetzen.",zones:["sanctum"]},
+{id:"onryo",title:"Onryo besiegen",description:"Ersten Bossabschnitt abschließen.",zones:["sanctum"],roles:4},
+{id:"nyxara",title:"Nyxara besiegen",description:"Alle Phasen des finalen Bosskampfs abschließen.",zones:["sanctum","courtyard"],roles:4}]}
+]},{id:"totenreich",name:"Totenreich",subtitle:"Bald verfügbar",available:false},{id:"future",name:"Weitere Maps",subtitle:"Bald verfügbar",available:false}],zones:{outerward:"Outer Ward",gatehouse:"Gatehouse",stables:"Stables",training:"Training Area",courtyard:"Central Courtyard",teagarden:"Tea Garden",garden:"Flower Garden",kitchens:"Kitchens",storage:"Storage Rooms",warroom:"War Room",study:"Collapse Study",workshop:"Workshop",meditation:"Meditation Room",staging:"Staging Area",onsen:"Onsen Baths",tenshu:"Tenshu Entrance",sanctum:"Shogun’s Sanctum"}};

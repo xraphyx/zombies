@@ -1,0 +1,14 @@
+{
+  "name": "Kowakujō – Squad Guide",
+  "short_name": "Kowakujō",
+  "description": "Mobiler Community-Guide mit Checkliste, Karte und Fokusmodus.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#120f0d",
+  "theme_color": "#120f0d",
+  "orientation": "portrait",
+  "icons": [
+    {"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
