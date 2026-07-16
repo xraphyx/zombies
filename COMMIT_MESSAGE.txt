@@ -1,0 +1,10 @@
+fix: rebuild map interactions and repair persistent app state
+
+- replace broken SVG map interactions with reliable HTML touch buttons
+- fix dotted step-key persistence for progress, notes and favorites
+- migrate previously nested V2 local data
+- connect map zones to exact focus steps
+- preserve search focus while typing
+- correct undo and focus reopen behavior
+- implement run goals, useful-next steps and boss checklist
+- refresh PWA cache strategy and icons

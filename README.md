@@ -1,54 +1,54 @@
-# Kowakujō – GitHub Pages App
+# Kowakujō – Squad Guide V3
 
-## Veröffentlichen
+## Diese Dateien ersetzen
 
-1. Alle Dateien aus diesem Ordner in das Stammverzeichnis deines GitHub-Repositories hochladen.
-2. Bei GitHub Free muss das Repository öffentlich sein.
-3. Repository → **Settings** → **Pages**.
-4. Unter **Build and deployment**:
-   - Source: **Deploy from a branch**
-   - Branch: **main**
-   - Folder: **/(root)**
-5. **Save**.
+Alle Dateien aus diesem Ordner gehören in das Stammverzeichnis des GitHub-Repositories `xraphyx/zombies`.
+Vorhandene Dateien mit gleichem Namen ersetzen und anschließend **Commit changes** drücken.
 
-Die Adresse lautet anschließend normalerweise:
+Die GitHub-Pages-Adresse bleibt:
 
-`https://DEIN-BENUTZERNAME.github.io/REPOSITORY-NAME/`
+`https://xraphyx.github.io/zombies/`
 
-## Version 2 – zusätzlich
+## Wichtig nach dem Commit
 
-- Run-Zielauswahl: Casual, Wunderwaffe, Easter Egg oder 100 %
-- Dynamische Liste „Jetzt sinnvoll“
-- Allgemeine Boss-Vorbereitungscheckliste
-- Zielabhängiges Ausblenden unnötiger Abschnitte
-- Erweiterter Export/Import inklusive Ziel und Bossstatus
+Die neue Version verwendet einen neuen Service-Worker-Cache und Versionsparameter. Öffne die Seite nach dem Deployment einmal neu.
+Falls weiterhin eine alte Version erscheint:
 
-## Enthalten
+1. App → **Mehr**
+2. **Neue App-Version laden**
+3. Seite erneut öffnen
 
-- Mobile Checkliste mit lokaler Speicherung
-- Fokusmodus mit vorherigem/nächstem Schritt und Abschlussansicht
-- Schematische, anklickbare Karte
-- Suche, Favoriten und funktionierendes Undo
-- Vollständiger Export/Import
-- Offline-App-Shell, Manifest und iPhone-Icons
-- Optionaler Online-Squad-Sync per Supabase Realtime
+## Wichtigste Korrekturen
 
-## Quest-Inhalte ändern
+- Die alte Karte verwendete versehentlich HTML-Namespace-Elemente für `svg`, `g`, `rect` und `text`.
+- Die neue Karte verwendet ausschließlich echte HTML-Buttons mit großen Touch-Flächen und funktioniert daher zuverlässig in iPhone-Safari.
+- Die Kartenanordnung wurde logisch umgedreht: Outer Ward unten, inneres Sanctum oben.
+- Jede Zone zeigt offene Schritte und öffnet exakt den ausgewählten Schritt im Fokusmodus.
+- Zusätzlich gibt es unter der Karte eine vollständige klickbare Zonenliste als Touch- und Accessibility-Fallback.
+- Der alte generische Pfad-Setter zerlegte Schrittschlüssel wie `paps.wards` fälschlich in verschachtelte Objekte. Fortschritt, Notizen und Favoriten werden nun korrekt gespeichert.
+- Bereits falsch verschachtelte lokale Daten werden beim Start automatisch migriert.
+- Die Suche behält beim Tippen Fokus und Cursorposition.
+- Details, Notizfelder, Favoriten, Undo und Fokusnavigation wurden korrigiert.
+- „Wieder öffnen“ springt nicht mehr fälschlich zum nächsten Schritt.
+- Run-Ziele, „Jetzt sinnvoll“ und Boss-Checkliste sind jetzt tatsächlich implementiert.
+- Service Worker nutzt für Seitenaufrufe Network-first und verhindert deutlich besser veraltete Builds.
 
-Alle Questtexte und Zonen stehen in `guide-data.js`. Änderungen an dieser Datei benötigen keine Anpassung der App-Logik.
-
-## Optionaler Online-Squad-Sync
+## Optionaler Squad-Sync
 
 Die App funktioniert ohne Backend vollständig lokal.
+Für Raumcodes in `config.js` eintragen:
 
-Für gemeinsame Raumcodes:
+```js
+window.KOWA_CONFIG = {
+  supabaseUrl: "DEINE_URL",
+  supabaseAnonKey: "DEIN_PUBLISHABLE_ODER_ANON_KEY"
+};
+```
 
-1. Ein Supabase-Projekt erstellen.
-2. Project URL und Publishable/Anon Key kopieren.
-3. Beide Werte in `config.js` eintragen.
+Es ist keine Datenbanktabelle nötig; verwendet werden Supabase Realtime Broadcast und Presence.
 
-Es ist keine Datenbanktabelle erforderlich. Der Sync verwendet Realtime Broadcast und Presence. Später beitretende Geräte fordern automatisch einen aktuellen Snapshot von bereits verbundenen Squad-Mitgliedern an. Wenn kein Squad-Mitglied verbunden ist, wird der Raumzustand nicht dauerhaft auf dem Server gespeichert.
+## Quest-Inhalte bearbeiten
 
-## Inhaltlicher Hinweis
-
-Der Anwendungscode wurde auf die gefundenen Fehler hin korrigiert. Die Questtexte sind bewusst als Community-Checkliste formuliert. Spielinhalte und mögliche Bereiche sollten nach Updates gegen verlässliche Quellen geprüft werden.
+- `guide-data.js`: Schritte, Zonen, Kartenpositionen, Run-Ziele und Boss-Checkliste
+- `app.js`: Interaktionslogik
+- `styles.css`: Darstellung

@@ -1,14 +1,70 @@
-const CACHE="kowa-static-v3";
-const ASSETS=["./","./index.html","./styles.css","./guide-data.js","./config.js","./app.js","./manifest.webmanifest","./icon.svg"];
-self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
-self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener("fetch",e=>{
-  if(e.request.method!=="GET") return;
-  e.respondWith(caches.match(e.request).then(cached=>{
-    const fresh=fetch(e.request).then(res=>{
-      if(res.ok&&new URL(e.request.url).origin===location.origin){const copy=res.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));}
-      return res;
-    }).catch(()=>cached);
-    return cached||fresh;
-  }));
+const CACHE_NAME = "kowa-static-v6";
+const CORE_ASSETS = [
+  "./",
+  "./index.html",
+  "./styles.css?v=3.1.0",
+  "./guide-data.js?v=3.1.0",
+  "./config.js?v=3.1.0",
+  "./app.js?v=3.1.0",
+  "./manifest.webmanifest?v=3.1.0",
+  "./icon.svg?v=3.1.0",
+  "./icon-192.png?v=3.1.0",
+  "./icon-512.png?v=3.1.0"
+];
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches
+      .open(CACHE_NAME)
+      .then((cache) => cache.addAll(CORE_ASSETS))
+      .then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches
+      .keys()
+      .then((names) => Promise.all(names.filter((name) => name !== CACHE_NAME).map((name) => caches.delete(name))))
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") return;
+
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.origin !== self.location.origin) return;
+
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const copy = response.clone();
+          const indexRequest = new Request(new URL("./index.html", self.registration.scope));
+          caches.open(CACHE_NAME).then((cache) => cache.put(indexRequest, copy));
+          return response;
+        })
+        .catch(async () => {
+          const indexRequest = new Request(new URL("./index.html", self.registration.scope));
+          return (await caches.match(indexRequest)) || (await caches.match("./"));
+        })
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(event.request).then((cached) => {
+      const network = fetch(event.request)
+        .then((response) => {
+          if (response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          }
+          return response;
+        })
+        .catch(() => cached);
+      return cached || network;
+    })
+  );
 });
